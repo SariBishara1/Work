@@ -26,10 +26,10 @@ chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64
 prefs = {"profile.managed_default_content_settings.images": 2}
 chrome_options.add_experimental_option("prefs", prefs)
 
-# Initialize WebDriver
-chrome_options.binary_location = 'C:/Users/sarib/OneDrive/Desktop/Sari\'s/Arbeit/Discord2/chrome-win64/chrome.exe'
+# Updated Chrome binary and driver paths for Ubuntu
+chrome_options.binary_location = '/usr/bin/google-chrome'  # Correct path for Chrome binary on Ubuntu
 driver = webdriver.Chrome(
-    service=Service('C:/Users/sarib/OneDrive/Desktop/Sari\'s/Arbeit/Discord2/chromedriver-win64/chromedriver.exe'),
+    service=Service('/usr/local/bin/chromedriver'),  # Correct path for ChromeDriver on Ubuntu
     options=chrome_options
 )
 wait = WebDriverWait(driver, 10)
@@ -101,3 +101,4 @@ except Exception as e:
     print("An error occurred:", e)
 finally:
     driver.quit()
+
